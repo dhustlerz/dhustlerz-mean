@@ -5,16 +5,16 @@
   </div>
 
   <div class="jumbotron text-center">
-    <h1>D-Hustlerz</h1>
-    <p class="lead">
+    <h1>Sample JP</h1>
+    <!-- <p class="lead">
       <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
       Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
+    </p> -->
+   <!--  <p class="animated infinite" ng-class="main.classAnimation">
       <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
+    </p> -->
     <p>
-      Vision to<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
+      Vision to<acme-malarkey extra-values="['Talent', 'New', 'JP']"></acme-malarkey>
     </p>
   </div>
 
@@ -35,8 +35,8 @@
     <div class="panel-heading">My message Box</div>
       <div class="panel-body">
         <div class="input group">
-          <textarea class="form-control custom-control" rows="3" style="resize:none">Hello</textarea>
-          <span class="input-group-addon btn btn-primary" ng-click="postMessage()">Post</span>
+          <textarea class="form-control custom-control" rows="3" style="resize:none" ng-model="$scope.message">Hello</textarea>
+          <span class="input-group-addon btn btn-primary" ng-click="postMessage($scope.message)">Post</span>
         </div>
       </div>
   </div>

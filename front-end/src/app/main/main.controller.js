@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $scope) {
+  function MainController($timeout, webDevTec, toastr, $scope, $http) {
     // var vm = this;
 
     // vm.awesomeThings = [];
@@ -35,10 +35,22 @@
     //     awesomeThing.rank = Math.random();
     //   });
     // }
-    $scope.postMessage = function () {
-      alert('myMessageFront Posted');
+    $scope.postMessage = function (myMsg) {
+      if(!jQuery.isEmptyObject(myMsg)) {
+        $http.post('http://localhost:5000/api/message', {msg: myMsg});
+      }
     }
 
   }
 })();
 
+// export class MainController {
+//   constrtuctor ($http) {
+//     'ngInject';
+
+//   }
+
+//   postMessage() {
+//     alert('working');
+//   }
+// }
