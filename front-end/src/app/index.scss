@@ -26,6 +26,10 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
     width: 50px;
   }
 }
+.message-list {
+	height: 300px;
+	overflow-y: scroll;
+}
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

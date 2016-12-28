@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+  </div>
+
+  <div class="jumbotron text-center">
+    <h1>Sample JP</h1>
+    <!-- <p class="lead">
+      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
+      Always a pleasure scaffolding your apps.
+    </p> -->
+   <!--  <p class="animated infinite" ng-class="main.classAnimation">
+      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
+    </p> -->
+    <p>
+      Vision to<acme-malarkey extra-values="['Talent', 'New', 'JP']"></acme-malarkey>
+    </p>
+  </div>
+
+ <!--  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <div class="caption">
+          <h3>{{ awesomeThing.title }}</h3>
+          <p>{{ awesomeThing.description }}</p>
+          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="panel panel-default">
+    <div class="panel-heading">My message Box</div>
+      <div class="panel-body">
+        <div class="input group">
+          <textarea class="form-control custom-control" rows="3" style="resize:none" ng-model="$scope.message">Hello</textarea>
+          <span class="input-group-addon btn btn-primary" ng-click="postMessage($scope.message)">Post</span>
+        </div>
+      </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">My message Box</div>
+      <div class="panel-body">
+        <li class="list-group-item" ng-repeat="message in messages">{{message.msg}}</li>
+      </div>
+  </div>
+
+</div>

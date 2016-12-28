@@ -1,56 +1,17 @@
-(function() {
-  'use strict';
-
-  angular
-    .module('myMessageFront')
-    .controller('MainController', MainController);
-
-  /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $scope, $http) {
-    // var vm = this;
-
-    // vm.awesomeThings = [];
-    // vm.classAnimation = '';
-    // vm.creationDate = 1481817960718;
-    // vm.showToastr = showToastr;
-
-    // activate();
-
-    // function activate() {
-    //   getWebDevTec();
-    //   $timeout(function() {
-    //     vm.classAnimation = 'rubberBand';
-    //   }, 4000);
-    // }
-
-    // function showToastr() {
-    //   toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    //   vm.classAnimation = '';
-    // }
-
-    // function getWebDevTec() {
-    //   vm.awesomeThings = webDevTec.getTec();
-
-    //   angular.forEach(vm.awesomeThings, function(awesomeThing) {
-    //     awesomeThing.rank = Math.random();
-    //   });
-    // }
-    $scope.postMessage = function (myMsg) {
-      if(!jQuery.isEmptyObject(myMsg)) {
-        $http.post('http://localhost:5000/api/message', {msg: myMsg});
-      }
-    }
-
+export class MainController {
+  constructor($http) {
+    'ngInject';
+    this.$http = $http;
+    this.getMessages();
   }
-})();
-
-// export class MainController {
-//   constrtuctor ($http) {
-//     'ngInject';
-
-//   }
-
-//   postMessage() {
-//     alert('working');
-//   }
-// }
+  getMessages() {
+    var vm = this;
+    this.$http.get('http://localhost:5000/api/message').then((result) => {
+      vm.messages = result.data;
+    });
+  }
+  postMessage() {
+    this.$http.post('http://localhost:5000/api/message', { msg: this.message });
+    this.message = "";
+  }
+}

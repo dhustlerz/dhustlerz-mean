@@ -16,6 +16,8 @@ app.use(function (req, res, next) {
 	next();
 })
 
+app.get('/api/message', GetMessages);
+
 app.post('/api/message', function(req, res){
 	console.log(req.body);
 	res.status(200);
@@ -23,6 +25,7 @@ app.post('/api/message', function(req, res){
 	var message = new Message(req.body);
 	message.save();
 })
+mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/test", function(err, db) {
 	if(!err) {
 		console.log('we are connected to mongo');
@@ -32,8 +35,8 @@ var server = app.listen(5000, function(){
 	console.log('listening on port', server.address().port);
 });
 
-function GetMessages() {
+function GetMessages(req, res) {
 	Message.find({}).exec(function(err, result){
-		response.send(result);
+		res.send(result);
 	}) 
 }
